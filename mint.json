@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Open Game Services",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -15,77 +15,125 @@
       "to": "#07C983"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "type": "github",
+    "url": "https://github.com/rivet-gg/rivet"
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Modules",
+      "url": "modules"
+    },
+    {
+      "name": "Engine",
+      "url": "engine"
     }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "discord",
+      "url": "https://rivet.gg/discord"
     },
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Deploy with Rivet",
+      "icon": "upload",
+      "url": "https://rivet.gg/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "modules/introduction",
+        "modules/quickstart"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Modules",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        {
+          "icon": "user",
+          "group": "User",
+          "pages": [
+            "modules/users/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/users/scripts/get",
+                "modules/users/scripts/register"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "key",
+          "group": "Authentication",
+          "pages": [
+            "modules/users/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/users/scripts/get",
+                "modules/users/scripts/register"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "users",
+          "group": "Friends",
+          "pages": [
+            "modules/users/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/users/scripts/get",
+                "modules/users/scripts/register"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "chess",
+          "group": "Matchmaker",
+          "pages": [
+            "modules/users/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/users/scripts/get",
+                "modules/users/scripts/register"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "medal",
+          "group": "Leaderboards",
+          "pages": [
+            "modules/users/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/users/scripts/get",
+                "modules/users/scripts/register"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Get Started",
       "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "engine/introduction"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/rivet_gg",
+    "github": "https://github.com/rivet-gg",
+    "discord": "https://rivet.gg/discord"
   }
 }
