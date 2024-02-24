@@ -19,15 +19,6 @@
     "type": "github",
     "url": "https://github.com/rivet-gg/rivet"
   },
-  "primaryTab": {
-    "name": "Modules"
-  },
-  "tabs": [
-    {
-      "name": "Engine",
-      "url": "engine"
-    }
-  ],
   "anchors": [
     {
       "name": "Community",
@@ -44,8 +35,14 @@
     {
       "group": "Get Started",
       "pages": [
-        "modules/introduction",
-        "modules/quickstart"
+        "introduction",
+        "quickstart",
+        {
+          "group": "Building modules",
+          "pages": [
+            "building/introduction"
+          ]
+        }
       ]
     },
     {
@@ -69,12 +66,12 @@
           "icon": "key",
           "group": "Authentication",
           "pages": [
-            "modules/users/overview",
+            "modules/auth/overview",
             {
               "group": "Scripts",
               "pages": [
-                "modules/users/scripts/get",
-                "modules/users/scripts/register"
+                "modules/auth/scripts/get",
+                "modules/auth/scripts/register"
               ]
             }
           ]
@@ -83,12 +80,12 @@
           "icon": "users",
           "group": "Friends",
           "pages": [
-            "modules/users/overview",
+            "modules/auth/overview",
             {
               "group": "Scripts",
               "pages": [
-                "modules/users/scripts/get",
-                "modules/users/scripts/register"
+                "modules/auth/scripts/get",
+                "modules/auth/scripts/register"
               ]
             }
           ]
@@ -97,12 +94,12 @@
           "icon": "chess",
           "group": "Matchmaker",
           "pages": [
-            "modules/users/overview",
+            "modules/auth/overview",
             {
               "group": "Scripts",
               "pages": [
-                "modules/users/scripts/get",
-                "modules/users/scripts/register"
+                "modules/auth/scripts/get",
+                "modules/auth/scripts/register"
               ]
             }
           ]
@@ -111,22 +108,16 @@
           "icon": "medal",
           "group": "Leaderboards",
           "pages": [
-            "modules/users/overview",
+            "modules/auth/overview",
             {
               "group": "Scripts",
               "pages": [
-                "modules/users/scripts/get",
-                "modules/users/scripts/register"
+                "modules/auth/scripts/get",
+                "modules/auth/scripts/register"
               ]
             }
           ]
         }
-      ]
-    },
-    {
-      "group": "Get Started",
-      "pages": [
-        "engine/introduction"
       ]
     }
   ],

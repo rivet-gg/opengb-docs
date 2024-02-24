@@ -1,0 +1,50 @@
+---
+title: Overview
+---
+
+| Stability | Test Coverage | Load Tests  | Database |
+| --------- | ------------- | ----------- | -------- |
+| Stable    | 87%           | ✅          | ✅       |
+
+**Maintainers**
+
+- [Nathan Flurry](https://github.com/nathanflurry)
+
+**Dependencies**
+
+- [auth](/modules/auth/introduction)
+
+## Installation
+
+<Steps>
+    <Step title="Update config">
+        Add the following to your `ogs.yaml` or `rivet.yaml`:
+
+        ```yaml
+        modules:
+          users: {}
+        ```
+    </Step>
+    <Step title="Call scripts">
+        <CodeGroup>
+
+        ```bash curl
+        curl --request POST \
+            --url https://dog-api.kinduff.com/api/facts
+        ```
+
+        ```typescript TypeScript
+        let response = await fetch('https://dog-api.kinduff.com/api/facts', {});
+        ```
+
+        </CodeGroup>
+    </Step>
+</Steps>
+
+
+## Scripts
+
+<CardGroup>
+    <Card title="get" href="/modules/users/scripts/get" />
+    <Card title="register" href="/modules/users/scripts/register" />
+</CardGroup>
