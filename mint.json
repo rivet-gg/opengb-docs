@@ -7,12 +7,12 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#ff760a",
+    "light": "#ffbd6d",
+    "dark": "#ff760a",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#ff760a",
+      "to": "#ffbd6d"
     }
   },
   "topbarCtaButton": {
