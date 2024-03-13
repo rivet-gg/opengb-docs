@@ -1,0 +1,63 @@
+---
+title: Overview
+---
+
+TODO:
+
+- Display name
+- Source
+- Config
+- Icon
+- Database schema
+
+| Stability     | Database     |
+| ------------- | ------------ |
+| Stable | ✅ |
+
+**Authors**
+
+- [ABCxFF](https://github.com/ABCxFF)
+
+**Dependencies**
+
+- [rate_limit](/modules/rate_limit/introduction)
+- [users](/modules/users/introduction)
+
+## Installation
+
+<Steps>
+<Step title="Update config">
+Add the following to your `backend.yaml`:
+
+```yaml
+modules:
+  users: {}
+
+```
+
+</Step>
+<Step title="Call scripts">
+<CodeGroup>
+
+```bash curl
+curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</CodeGroup>
+</Step>
+</Steps>
+
+## Scripts
+
+<CardGroup>
+  <Card title="deposit" href="/modules/currency/scripts/deposit" />
+<Card title="withdraw" href="/modules/currency/scripts/withdraw" />
+<Card title="get_balance" href="/modules/currency/scripts/get_balance" />
+<Card title="set_balance" href="/modules/currency/scripts/set_balance" />
+<Card title="get_balance_by_token" href="/modules/currency/scripts/get_balance_by_token" />
+</CardGroup>

@@ -1,0 +1,63 @@
+---
+title: "create"
+---
+
+TODO:
+
+- Display name
+- Schema
+
+| Public     |
+| ---------- |
+| ❌ |
+
+<RequestExample>
+
+```bash curl
+  curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{ "status": "success" }
+```
+
+</ResponseExample>
+
+## Request
+
+<ResponseField name="user" type="User Object">
+  <Expandable title="properties">
+    <ResponseField name="full_name" type="string">
+      The full name of the user
+    </ResponseField>
+
+    <ResponseField name="is_over_21" type="boolean">
+      Whether the user is over 21 years old
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+## Response
+
+<ResponseField name="user" type="User Object">
+  <Expandable title="properties">
+    <ResponseField name="full_name" type="string">
+      The full name of the user
+    </ResponseField>
+
+    <ResponseField name="is_over_21" type="boolean">
+      Whether the user is over 21 years old
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>

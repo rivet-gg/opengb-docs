@@ -1,0 +1,59 @@
+---
+title: Overview
+---
+
+TODO:
+
+- Display name
+- Source
+- Config
+- Icon
+- Database schema
+
+| Stability     | Database     |
+| ------------- | ------------ |
+| Stable | ✅ |
+
+**Authors**
+
+- [NathanFlurry](https://github.com/NathanFlurry)
+
+**Dependencies**
+
+_No dependencies_
+
+## Installation
+
+<Steps>
+<Step title="Update config">
+Add the following to your `backend.yaml`:
+
+```yaml
+modules:
+  users: {}
+
+```
+
+</Step>
+<Step title="Call scripts">
+<CodeGroup>
+
+```bash curl
+curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</CodeGroup>
+</Step>
+</Steps>
+
+## Scripts
+
+<CardGroup>
+  <Card title="throttle" href="/modules/rate_limit/scripts/throttle" />
+<Card title="throttle_public" href="/modules/rate_limit/scripts/throttle_public" />
+</CardGroup>

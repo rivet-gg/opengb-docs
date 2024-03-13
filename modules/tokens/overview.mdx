@@ -1,0 +1,62 @@
+---
+title: Overview
+---
+
+TODO:
+
+- Display name
+- Source
+- Config
+- Icon
+- Database schema
+
+| Stability     | Database     |
+| ------------- | ------------ |
+| Stable | ✅ |
+
+**Authors**
+
+- [NathanFlurry](https://github.com/NathanFlurry)
+
+**Dependencies**
+
+_No dependencies_
+
+## Installation
+
+<Steps>
+<Step title="Update config">
+Add the following to your `backend.yaml`:
+
+```yaml
+modules:
+  users: {}
+
+```
+
+</Step>
+<Step title="Call scripts">
+<CodeGroup>
+
+```bash curl
+curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</CodeGroup>
+</Step>
+</Steps>
+
+## Scripts
+
+<CardGroup>
+  <Card title="create" href="/modules/tokens/scripts/create" />
+<Card title="get" href="/modules/tokens/scripts/get" />
+<Card title="get_by_token" href="/modules/tokens/scripts/get_by_token" />
+<Card title="revoke" href="/modules/tokens/scripts/revoke" />
+<Card title="validate" href="/modules/tokens/scripts/validate" />
+</CardGroup>

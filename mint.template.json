@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Open Game Backend",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#ff760a",
+    "light": "#ffbd6d",
+    "dark": "#ff760a",
+    "anchors": {
+      "from": "#ff760a",
+      "to": "#ffbd6d"
+    }
+  },
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/rivet-gg/opengb"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://rivet.gg/discord"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        {
+          "group": "Building modules",
+          "pages": ["building/introduction"]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/rivet_gg",
+    "github": "https://github.com/rivet-gg",
+    "discord": "https://rivet.gg/discord"
+  },
+  "analytics": {
+    "posthog": {
+      "apiHost": "https://ph.rivet.gg/",
+      "apiKey": "phc_SQI0wHagPhev5KK7wHJnIf2JNF8fuYBdzzOgNEGylKW"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+---
+title: Overview
+---
+
+TODO:
+
+- Display name
+- Source
+- Config
+- Icon
+- Database schema
+
+| Stability     | Database     |
+| ------------- | ------------ |
+| Stable | ✅ |
+
+**Authors**
+
+- [NathanFlurry](https://github.com/NathanFlurry)
+
+**Dependencies**
+
+- [rate_limit](/modules/rate_limit/introduction)
+- [users](/modules/users/introduction)
+
+## Installation
+
+<Steps>
+<Step title="Update config">
+Add the following to your `backend.yaml`:
+
+```yaml
+modules:
+  users: {}
+
+```
+
+</Step>
+<Step title="Call scripts">
+<CodeGroup>
+
+```bash curl
+curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</CodeGroup>
+</Step>
+</Steps>
+
+## Scripts
+
+<CardGroup>
+  <Card title="send_request" href="/modules/friends/scripts/send_request" />
+<Card title="accept_request" href="/modules/friends/scripts/accept_request" />
+<Card title="decline_request" href="/modules/friends/scripts/decline_request" />
+<Card title="remove_friend" href="/modules/friends/scripts/remove_friend" />
+<Card title="list_friends" href="/modules/friends/scripts/list_friends" />
+<Card title="list_outgoing_friend_requests" href="/modules/friends/scripts/list_outgoing_friend_requests" />
+<Card title="list_incoming_friend_requests" href="/modules/friends/scripts/list_incoming_friend_requests" />
+</CardGroup>
