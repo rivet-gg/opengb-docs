@@ -196,13 +196,13 @@ async function generateModule(moduleName: string, module: ModuleMeta) {
   let install: string;
   if (module.hasUserConfigSchema) {
     install = `modules:
-  users:
+  ${moduleName}:
     config:
       # Your config here. See below for more details.
 `;
   } else {
     install = `modules:
-  users: {}
+  ${moduleName}: {}
 `;
   }
 
