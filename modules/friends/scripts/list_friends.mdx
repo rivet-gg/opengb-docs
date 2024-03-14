@@ -1,15 +1,16 @@
 ---
-title: "list_friends"
+title: "List Friends"
+description: "List all friends of a user."
+sidebarTitle: "List Friends"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ✅ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/friends/scripts/list_friends.ts) | `list_friends` | Yes |
 
 <RequestExample>
 
@@ -34,30 +35,21 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  userToken: string;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {
+  friends: Friend[];
+}
+export interface Friend {
+  userIdA: string;
+  userIdB: string;
+  createdAt: string;
+}
+```

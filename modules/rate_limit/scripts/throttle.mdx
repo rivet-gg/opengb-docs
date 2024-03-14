@@ -1,15 +1,16 @@
 ---
-title: "throttle"
+title: "Throttle"
+description: "Limit the amount of times an request can be made by a given key."
+sidebarTitle: "Throttle"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ❌ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/rate_limit/scripts/throttle.ts) | `throttle` | No |
 
 <RequestExample>
 
@@ -34,30 +35,29 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  /**
+   * The type of entity to rate limit by. For example, "ip" or "user".
+   */
+  type: string;
+  /**
+   * The key to rate limit by. For example, the IP address or user ID.
+   */
+  key: string;
+  /**
+   * Number of requests in `period` before rate limiting.
+   */
+  requests: number;
+  /**
+   * How frequently to reset the request counter, in seconds.
+   */
+  period: number;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {}
+```

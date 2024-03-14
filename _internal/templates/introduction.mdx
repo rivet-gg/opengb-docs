@@ -1,41 +1,36 @@
 ---
 title: Overview
-description: "Simple building blocks to build your game backend."
+description: "Open-source modular backend for all games and tools."
 ---
+
+import { Tags } from "/snippets/tags.mdx";
 
 <img
   className="block dark:hidden"
-  src="/images/hero-light.svg"
+  src="/images/hero-light.png"
   alt="Hero Light"
 />
 <img
   className="hidden dark:block"
-  src="/images/hero-dark.svg"
+  src="/images/hero-dark.png"
   alt="Hero Dark"
 />
 
-## What is OpenGB (Open Game Backend)?
+## What is Open Game Backend?
 
-OpenGB (Open Game Backend) is a game backend designed to be simple to use and easy to extend & modify.
+- **First-class scripting, designed like a game engine** Easily extend & modify to grow with your backend on top of the [OpenGB Engine](/engine/introduction) using TypeScript; no backend experience required.
+- **Modular** Mix, match, & modify modules as needed to fit your game's unique requirements.
+- **Secure, load-tested, & resilient** Built to withstand the chaos that games need to grow & stay online. Load testing, rate limits, captchas, strict schemas, <Tooltip tip="...documentation, secrets management, auto-scaling, and backups">and more</Tooltip> are all enforced by default.
+- **Batteries included** Provides thoroughly reviewed, tested, and documented modules to get you started quickly & allow you to customize to fit your needs.
+- **Open-source & permissively licensed** Apache 2.0 license allows you to adapt, modify, & redistribute freely. _[Trust no one, own your backend.](https://delistedgames.com/gamesparks-service-to-end-in-september-potential-threat-to-thousands-of-titles/)_
 
-- **Modular** Add, remove, and modify modules from the backend to fit the use
-  case for your game
-- **Easy to use for game devs** The Engine takes care of the hard stuff so
-  adding functionality is dead simple
-- **Secure & load tested** Security, laod testing & anti-botting is not an
-  afterthought
-- **Strict schemas & documentation** Strict typings & documentation are
-  _required_ to make this easy to approach
-- **Portable & lightweight** Built on boring, reliable technology that runs
-  however you want to run OpenGB
-- **Package manager for game services** Adding backend functionality to your
-  game should be as easy as one command
-- **Permissively licensed** Apache 2.0 license allows developers to adapt,
-  modify, & redistribute
+See our [quickstart guide](/concepts/quickstart) to get up and running today. See how Open Game Backend compares to other game backends [here](/comparison/playfab).
 
 ## Modules
 
+These modules are thoroughly reviewed, tested, and documented to help you get your game backend up and running as quickly as possible. Learn more about [creating your own module](/build/introduction) and [using your own registries](/concepts/registries).
+
 <CardGroup cols={2}>
-  <Card title="Write your own" icon="plus" href="/building/introduction" />
+  <Card title="Build your own" icon="plus" href="/build/introduction" />
   %%MODULE_CARDS%%
 </CardGroup>

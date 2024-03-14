@@ -1,18 +1,19 @@
 ---
-title: Overview
+title: "%%DISPLAY_NAME%%"
+description: "%%DESCRIPTION%%"
+sidebarTitle: Overview
 ---
 
 TODO:
 
-- Display name
-- Source
 - Config
-- Icon
+- Errors
+- Script description
 - Database schema
 
-| Stability     | Database     |
-| ------------- | ------------ |
-| %%STABILITY%% | %%DATABASE%% |
+| Source                                                                           | Name       | Status     | Database     |
+| -------------------------------------------------------------------------------- | ---------- | ---------- | ------------ |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/%%NAME%%) | `%%NAME%%` | %%STATUS%% | %%DATABASE%% |
 
 **Authors**
 
@@ -51,6 +52,8 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Scripts
 
-<CardGroup>
-  %%SCRIPTS%%
-</CardGroup>
+<CardGroup>%%SCRIPTS%%</CardGroup>
+
+## Errors
+
+%%ERRORS%%

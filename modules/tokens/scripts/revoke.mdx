@@ -1,15 +1,16 @@
 ---
-title: "revoke"
+title: "Revoke Token"
+description: "Revoke a token, preventing it from being used again."
+sidebarTitle: "Revoke Token"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ❌ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/tokens/scripts/revoke.ts) | `revoke` | No |
 
 <RequestExample>
 
@@ -34,30 +35,20 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  tokenIds: string[];
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
+```typescript
+export type TokenUpdate = "REVOKED" | "ALREADY_REVOKED" | "NOT_FOUND";
 
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+export interface Response {
+  updates: {
+    [k: string]: TokenUpdate;
+  };
+}
+```
