@@ -17,18 +17,13 @@
   },
   "topbarCtaButton": {
     "type": "github",
-    "url": "https://github.com/rivet-gg/rivet"
+    "url": "https://github.com/rivet-gg/opengb"
   },
   "anchors": [
     {
       "name": "Community",
       "icon": "discord",
       "url": "https://rivet.gg/discord"
-    },
-    {
-      "name": "Deploy with Rivet",
-      "icon": "upload",
-      "url": "https://rivet.gg/"
     }
   ],
   "navigation": [
@@ -50,70 +45,110 @@
       "pages": [
         {
           "icon": "user",
-          "group": "User",
+          "group": "auth",
+          "pages": [
+            "modules/auth/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/auth/scripts/auth_email_passwordless",
+                "modules/auth/scripts/verify_email_passwordless"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "currency",
+          "pages": [
+            "modules/currency/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/currency/scripts/deposit",
+                "modules/currency/scripts/get_balance",
+                "modules/currency/scripts/get_balance_by_token",
+                "modules/currency/scripts/set_balance",
+                "modules/currency/scripts/withdraw"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "email",
+          "pages": [
+            "modules/email/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/email/scripts/send_email"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "friends",
+          "pages": [
+            "modules/friends/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/friends/scripts/accept_request",
+                "modules/friends/scripts/decline_request",
+                "modules/friends/scripts/list_friends",
+                "modules/friends/scripts/list_incoming_friend_requests",
+                "modules/friends/scripts/list_outgoing_friend_requests",
+                "modules/friends/scripts/remove_friend",
+                "modules/friends/scripts/send_request"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "rate_limit",
+          "pages": [
+            "modules/rate_limit/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/rate_limit/scripts/throttle",
+                "modules/rate_limit/scripts/throttle_public"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "tokens",
+          "pages": [
+            "modules/tokens/overview",
+            {
+              "group": "Scripts",
+              "pages": [
+                "modules/tokens/scripts/create",
+                "modules/tokens/scripts/get",
+                "modules/tokens/scripts/get_by_token",
+                "modules/tokens/scripts/revoke",
+                "modules/tokens/scripts/validate"
+              ]
+            }
+          ]
+        },
+        {
+          "icon": "user",
+          "group": "users",
           "pages": [
             "modules/users/overview",
             {
               "group": "Scripts",
               "pages": [
-                "modules/users/scripts/get",
-                "modules/users/scripts/register"
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "key",
-          "group": "Authentication",
-          "pages": [
-            "modules/auth/overview",
-            {
-              "group": "Scripts",
-              "pages": [
-                "modules/auth/scripts/get",
-                "modules/auth/scripts/register"
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "users",
-          "group": "Friends",
-          "pages": [
-            "modules/auth/overview",
-            {
-              "group": "Scripts",
-              "pages": [
-                "modules/auth/scripts/get",
-                "modules/auth/scripts/register"
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "chess",
-          "group": "Matchmaker",
-          "pages": [
-            "modules/auth/overview",
-            {
-              "group": "Scripts",
-              "pages": [
-                "modules/auth/scripts/get",
-                "modules/auth/scripts/register"
-              ]
-            }
-          ]
-        },
-        {
-          "icon": "medal",
-          "group": "Leaderboards",
-          "pages": [
-            "modules/auth/overview",
-            {
-              "group": "Scripts",
-              "pages": [
-                "modules/auth/scripts/get",
-                "modules/auth/scripts/register"
+                "modules/users/scripts/create_user",
+                "modules/users/scripts/create_user_token",
+                "modules/users/scripts/get_user",
+                "modules/users/scripts/validate_user_token"
               ]
             }
           ]
@@ -125,5 +160,11 @@
     "twitter": "https://twitter.com/rivet_gg",
     "github": "https://github.com/rivet-gg",
     "discord": "https://rivet.gg/discord"
+  },
+  "analytics": {
+    "posthog": {
+      "apiHost": "https://ph.rivet.gg/",
+      "apiKey": "phc_SQI0wHagPhev5KK7wHJnIf2JNF8fuYBdzzOgNEGylKW"
+    }
   }
 }

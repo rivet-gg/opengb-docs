@@ -2,49 +2,60 @@
 title: Overview
 ---
 
-| Stability | Test Coverage | Load Tests  | Database |
-| --------- | ------------- | ----------- | -------- |
-| Stable    | 87%           | ✅          | ✅       |
+TODO:
 
-**Maintainers**
+- Display name
+- Source
+- Config
+- Icon
+- Database schema
 
-- [Nathan Flurry](https://github.com/nathanflurry)
+| Stability     | Database     |
+| ------------- | ------------ |
+| Stable | ✅ |
+
+**Authors**
+
+_No authors_
 
 **Dependencies**
 
-- [auth](/modules/auth/introduction)
+- [email](/modules/email/introduction)
+- [rate_limit](/modules/rate_limit/introduction)
+- [users](/modules/users/introduction)
 
 ## Installation
 
 <Steps>
-    <Step title="Update config">
-        Add the following to your `backend.yaml`:
+<Step title="Update config">
+Add the following to your `backend.yaml`:
 
-        ```yaml
-        modules:
-          users: {}
-        ```
-    </Step>
-    <Step title="Call scripts">
-        <CodeGroup>
+```yaml
+modules:
+  users: {}
 
-        ```bash curl
-        curl --request POST \
-            --url https://dog-api.kinduff.com/api/facts
-        ```
+```
 
-        ```typescript TypeScript
-        let response = await fetch('https://dog-api.kinduff.com/api/facts', {});
-        ```
+</Step>
+<Step title="Call scripts">
+<CodeGroup>
 
-        </CodeGroup>
-    </Step>
+```bash curl
+curl --request POST \
+    --url https://dog-api.kinduff.com/api/facts
+```
+
+```typescript TypeScript
+let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
+```
+
+</CodeGroup>
+</Step>
 </Steps>
-
 
 ## Scripts
 
 <CardGroup>
-    <Card title="get" href="/modules/users/scripts/get" />
-    <Card title="register" href="/modules/users/scripts/register" />
+  <Card title="auth_email_passwordless" href="/modules/auth/scripts/auth_email_passwordless" />
+<Card title="verify_email_passwordless" href="/modules/auth/scripts/verify_email_passwordless" />
 </CardGroup>
