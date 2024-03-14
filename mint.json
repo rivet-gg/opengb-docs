@@ -43,11 +43,25 @@
         "introduction",
         "concepts/quickstart",
         {
-          "group": "Advanced",
+          "group": "Concepts",
           "pages": [
             "concepts/registries",
             "concepts/known-issues",
-            "concepts/self-hosting"
+            {
+              "group": "Advanced",
+              "pages": [
+                "concepts/self-hosting"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Comparison",
+          "pages": [
+            "comparison/playfab",
+            "comparison/pragma",
+            "comparison/nakama",
+            "comparison/supabase"
           ]
         },
         {
@@ -63,15 +77,6 @@
                 "engine/design/deno"
               ]
             }
-          ]
-        },
-        {
-          "group": "Comparison",
-          "pages": [
-            "comparison/playfab",
-            "comparison/pragma",
-            "comparison/nakama",
-            "comparison/supabase"
           ]
         }
       ]
