@@ -24,6 +24,16 @@
       "name": "Community",
       "icon": "discord",
       "url": "https://rivet.gg/discord"
+    },
+    {
+      "name": "Issues",
+      "icon": "github",
+      "url": "https://github.com/rivet-gg/opengb/issues"
+    },
+    {
+      "name": "Deploy to Rivet",
+      "icon": "cloud-arrow-up",
+      "url": "https://b8v8449klvp.typeform.com/to/RsL6LgBW"
     }
   ],
   "navigation": [
@@ -31,11 +41,56 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
+        "concepts/quickstart",
         {
-          "group": "Building modules",
+          "group": "Advanced",
           "pages": [
-            "building/introduction"
+            "concepts/registries",
+            "concepts/known-issues",
+            "concepts/self-hosting"
+          ]
+        },
+        {
+          "group": "Engine Internals (Advanced)",
+          "pages": [
+            "engine/introduction",
+            "engine/schema-parser",
+            "engine/caching",
+            {
+              "group": "Design Decisions",
+              "pages": [
+                "engine/why-postgres",
+                "engine/why-prisma",
+                "engine/why-typescript",
+                "engine/why-deno"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Comparison",
+          "pages": [
+            "comparison/playfab",
+            "comparison/pragma",
+            "comparison/nakama",
+            "comparison/supabase"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Building Modules",
+      "pages": [
+        "build/introduction",
+        {
+          "group": "Concepts",
+          "pages": [
+            "build/module",
+            "build/database",
+            "build/script",
+            "build/user-config",
+            "build/errors",
+            "build/conventions"
           ]
         }
       ]
@@ -44,8 +99,8 @@
       "group": "Modules",
       "pages": [
         {
-          "icon": "user",
-          "group": "auth",
+          "icon": "key",
+          "group": "Authentication",
           "pages": [
             "modules/auth/overview",
             {
@@ -58,8 +113,8 @@
           ]
         },
         {
-          "icon": "user",
-          "group": "currency",
+          "icon": "coin",
+          "group": "Currency",
           "pages": [
             "modules/currency/overview",
             {
@@ -75,8 +130,8 @@
           ]
         },
         {
-          "icon": "user",
-          "group": "email",
+          "icon": "envelope",
+          "group": "Email",
           "pages": [
             "modules/email/overview",
             {
@@ -88,8 +143,8 @@
           ]
         },
         {
-          "icon": "user",
-          "group": "friends",
+          "icon": "user-group",
+          "group": "Friends",
           "pages": [
             "modules/friends/overview",
             {
@@ -107,8 +162,8 @@
           ]
         },
         {
-          "icon": "user",
-          "group": "rate_limit",
+          "icon": "gauge-circle-minus",
+          "group": "Rate Limit",
           "pages": [
             "modules/rate_limit/overview",
             {
@@ -121,8 +176,8 @@
           ]
         },
         {
-          "icon": "user",
-          "group": "tokens",
+          "icon": "lock",
+          "group": "Tokens",
           "pages": [
             "modules/tokens/overview",
             {
@@ -139,7 +194,7 @@
         },
         {
           "icon": "user",
-          "group": "users",
+          "group": "Users",
           "pages": [
             "modules/users/overview",
             {

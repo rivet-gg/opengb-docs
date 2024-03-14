@@ -1,15 +1,16 @@
 ---
-title: "list_incoming_friend_requests"
+title: "List Incoming Friend Requests"
+description: "List all friend requests received by a user."
+sidebarTitle: "List Incoming Friend Requests"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ✅ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/friends/scripts/list_incoming_friend_requests.ts) | `list_incoming_friend_requests` | Yes |
 
 <RequestExample>
 
@@ -34,30 +35,24 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  userToken: string;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {
+  friendRequests: FriendRequest[];
+}
+export interface FriendRequest {
+  id: string;
+  senderUserId: string;
+  targetUserId: string;
+  createdAt: string;
+  declinedAt: null | string;
+  acceptedAt: null | string;
+}
+```

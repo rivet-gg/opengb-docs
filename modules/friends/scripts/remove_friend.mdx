@@ -1,15 +1,16 @@
 ---
-title: "remove_friend"
+title: "Remove Friend"
+description: "Remove a friend from your friends list."
+sidebarTitle: "Remove Friend"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ✅ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/friends/scripts/remove_friend.ts) | `remove_friend` | Yes |
 
 <RequestExample>
 
@@ -34,30 +35,15 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  userToken: string;
+  targetUserId: string;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {}
+```

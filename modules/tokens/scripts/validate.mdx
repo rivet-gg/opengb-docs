@@ -1,15 +1,16 @@
 ---
-title: "validate"
+title: "Validate Token"
+description: "Validate a token. Throws an error if the token is invalid."
+sidebarTitle: "Validate Token"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ❌ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/tokens/scripts/validate.ts) | `validate` | No |
 
 <RequestExample>
 
@@ -34,30 +35,24 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  token: string;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {
+  token: Token;
+}
+export interface Token {
+  id: string;
+  type: string;
+  meta: any;
+  createdAt: string;
+  expireAt: null | string;
+  revokedAt: null | string;
+}
+```

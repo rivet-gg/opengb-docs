@@ -1,15 +1,16 @@
 ---
-title: "create_user_token"
+title: "Create User Token"
+description: "Create a token for a user to authenticate future requests."
+sidebarTitle: "Create User Token"
 ---
 
 TODO:
 
-- Display name
 - Schema
 
-| Public     |
-| ---------- |
-| ❌ |
+| Source                                                                                                      | Name     | Public     |
+| ----------------------------------------------------------------------------------------------------------- | -------- | ---------- |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/users/scripts/create_user_token.ts) | `create_user_token` | No |
 
 <RequestExample>
 
@@ -34,30 +35,25 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Request
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Request {
+  userId: string;
+}
+```
 
 ## Response
 
-<ResponseField name="user" type="User Object">
-  <Expandable title="properties">
-    <ResponseField name="full_name" type="string">
-      The full name of the user
-    </ResponseField>
-
-    <ResponseField name="is_over_21" type="boolean">
-      Whether the user is over 21 years old
-    </ResponseField>
-
-  </Expandable>
-</ResponseField>
+```typescript
+export interface Response {
+  token: TokenWithSecret;
+}
+export interface TokenWithSecret {
+  token: string;
+  id: string;
+  type: string;
+  meta: any;
+  createdAt: string;
+  expireAt: null | string;
+  revokedAt: null | string;
+}
+```

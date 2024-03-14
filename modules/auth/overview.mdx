@@ -1,28 +1,30 @@
 ---
-title: Overview
+title: "Authentication"
+description: "Authenticate users with multiple authentication methods."
+sidebarTitle: Overview
 ---
 
 TODO:
 
-- Display name
-- Source
 - Config
-- Icon
+- Errors
+- Script description
 - Database schema
 
-| Stability     | Database     |
-| ------------- | ------------ |
-| Stable | ✅ |
+| Source                                                                           | Name       | Status     | Database     |
+| -------------------------------------------------------------------------------- | ---------- | ---------- | ------------ |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/auth) | `auth` | stable | Yes |
 
 **Authors**
 
-_No authors_
+- [rivet-gg](https://github.com/rivet-gg)
+- [NathanFlurry](https://github.com/NathanFlurry)
 
 **Dependencies**
 
-- [email](/modules/email/introduction)
-- [rate_limit](/modules/rate_limit/introduction)
-- [users](/modules/users/introduction)
+- [Email](/modules/email/overview)
+- [Rate Limit](/modules/rate_limit/overview)
+- [Users](/modules/users/overview)
 
 ## Installation
 
@@ -32,7 +34,9 @@ Add the following to your `backend.yaml`:
 
 ```yaml
 modules:
-  users: {}
+  users:
+    config:
+      # Your config here. See below for more details.
 
 ```
 
@@ -55,7 +59,14 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Scripts
 
-<CardGroup>
-  <Card title="auth_email_passwordless" href="/modules/auth/scripts/auth_email_passwordless" />
-<Card title="verify_email_passwordless" href="/modules/auth/scripts/verify_email_passwordless" />
-</CardGroup>
+<CardGroup><Card title="Authenticate Email Passwordless" href="/modules/auth/scripts/auth_email_passwordless">Send a one-time verification code to a user's email address to authenticate them.</Card>
+<Card title="Verify Email Passwordless" href="/modules/auth/scripts/verify_email_passwordless">Verify a user's email address with a one-time verification code.</Card></CardGroup>
+
+## Errors
+
+- **Email Already Used** (`email_already_used`) 
+- **Provider Disabled** (`provider_disabled`) 
+- **Verification Code Already Used** (`verification_code_already_used`) 
+- **Verification Code Attempt Limit** (`verification_code_attempt_limit`) 
+- **Verification Code Expired** (`verification_code_expired`) 
+- **Verification Code Invalid** (`verification_code_invalid`) 

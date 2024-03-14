@@ -1,22 +1,24 @@
 ---
-title: Overview
+title: "Email"
+description: "Send emails using multiple providers."
+sidebarTitle: Overview
 ---
 
 TODO:
 
-- Display name
-- Source
 - Config
-- Icon
+- Errors
+- Script description
 - Database schema
 
-| Stability     | Database     |
-| ------------- | ------------ |
-| Stable | ❌ |
+| Source                                                                           | Name       | Status     | Database     |
+| -------------------------------------------------------------------------------- | ---------- | ---------- | ------------ |
+| [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/email) | `email` | stable | No |
 
 **Authors**
 
-_No authors_
+- [rivet-gg](https://github.com/rivet-gg)
+- [NathanFlurry](https://github.com/NathanFlurry)
 
 **Dependencies**
 
@@ -30,7 +32,9 @@ Add the following to your `backend.yaml`:
 
 ```yaml
 modules:
-  users: {}
+  users:
+    config:
+      # Your config here. See below for more details.
 
 ```
 
@@ -53,6 +57,9 @@ let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
 
 ## Scripts
 
-<CardGroup>
-  <Card title="send_email" href="/modules/email/scripts/send_email" />
-</CardGroup>
+<CardGroup><Card title="Send Email" href="/modules/email/scripts/send_email"></Card></CardGroup>
+
+## Errors
+
+- **Email Missing Content** (`email_missing_content`) Email must have `html` and/or `text`
+- **SendGrid Error** (`sendgrid_error`) 
