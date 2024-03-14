@@ -54,15 +54,13 @@
           "group": "Engine Internals (Advanced)",
           "pages": [
             "engine/introduction",
-            "engine/schema-parser",
-            "engine/caching",
             {
               "group": "Design Decisions",
               "pages": [
-                "engine/why-postgres",
-                "engine/why-prisma",
-                "engine/why-typescript",
-                "engine/why-deno"
+                "engine/design/postgres",
+                "engine/design/prisma",
+                "engine/design/typescript",
+                "engine/design/deno"
               ]
             }
           ]
