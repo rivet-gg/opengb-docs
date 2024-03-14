@@ -11,22 +11,18 @@ import {
 import { compile } from "npm:json-schema-to-typescript@^13.1.2";
 
 const PROJECT_ROOT = resolve(import.meta.dirname!, "..", "..");
-// const OPENGB_PATH = resolve(
-//   PROJECT_ROOT,
-//   "_internal",
-//   "vendor",
-//   "opengb",
-// );
-// const TEST_PROJECT_PATH = resolve(
-//   PROJECT_ROOT,
-//   "_internal",
-//   "vendor",
-//   "opengb-registry",
-//   "tests",
-//   "basic",
-// );
-const OPENGB_PATH = "/Users/nathan/rivet/opengb";
-const TEST_PROJECT_PATH = "/Users/nathan/rivet/opengb-registry/tests/basic";
+const OPENGB_PATH = resolve(
+  PROJECT_ROOT,
+  "..",
+  "opengb",
+);
+const TEST_PROJECT_PATH = resolve(
+  PROJECT_ROOT,
+  "..",
+  "opengb-registry",
+  "tests",
+  "basic",
+);
 
 if (!Deno.env.get("SKIP_BUILD")) {
   console.log("Build OpenGB CLI");

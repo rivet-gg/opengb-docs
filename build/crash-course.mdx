@@ -1,0 +1,44 @@
+---
+title: Crash Course
+---
+
+## What you'll learn
+
+We're going to build a simple leaderboard module from scratch.
+
+We're going to:
+
+- Create a module
+- Setup your database
+- Write scripts
+- Write a test
+
+Make sure you've installed Open Game Backend as described [here](/concepts/install).
+
+## Step 1: Create project
+
+Create a new directory. Open a terminal in this directory.
+
+Run the following command:
+
+```sh
+opengb init
+```
+
+This will create a `backend.yaml` file in your directory with some default settings.
+
+## Step 2: Create module
+
+Run:
+
+```sh
+opengb create module my_leaderboard
+```
+
+This will create a directory `modules/my_leaderboard` and updated `backend.yaml` to include the module. The important files we'll look at are `modules/my_leaderboard/db/schema.prisma`, `modules/my_leaderboard/scripts/`, and `modules/my_leaderboard/tests/`.
+
+## Step 3: Setup database
+
+```prisma
+
+```

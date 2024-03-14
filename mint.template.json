@@ -41,6 +41,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
+        "concepts/install",
         "concepts/quickstart",
         {
           "group": "Concepts",
@@ -83,6 +84,7 @@
       "group": "Building Modules",
       "pages": [
         "build/introduction",
+        "build/crash-course",
         {
           "group": "Concepts",
           "pages": [
