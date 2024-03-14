@@ -1,6 +1,0 @@
-[submodule "_internal/vendor/opengb"]
-	path = _internal/vendor/opengb
-	url = https://github.com/rivet-gg/opengb.git
-[submodule "_internal/vendor/opengb-registry"]
-	path = _internal/vendor/opengb-registry
-	url = https://github.com/rivet-gg/opengb-registry.git
