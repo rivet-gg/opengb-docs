@@ -18,13 +18,28 @@ import { Tags } from "/snippets/tags.mdx";
 
 ## What is Open Game Backend?
 
-- **First-class scripting, designed like a game engine** Easily extend & modify to grow with your backend on top of the [OpenGB Engine](/engine/introduction) using TypeScript; no backend experience required.
-- **Modular** Mix, match, & modify modules as needed to fit your game's unique requirements.
-- **Secure, load-tested, & resilient** Built to withstand the chaos that games need to grow & stay online. Load testing, rate limits, captchas, strict schemas, <Tooltip tip="...documentation, secrets management, auto-scaling, and backups">and more</Tooltip> are all enforced by default.
-- **Batteries included** Provides thoroughly reviewed, tested, and documented modules to get you started quickly & allow you to customize to fit your needs.
-- **Open-source & permissively licensed** Apache 2.0 license allows you to adapt, modify, & redistribute freely. _[Trust no one, own your backend.](https://delistedgames.com/gamesparks-service-to-end-in-september-potential-threat-to-thousands-of-titles/)_
-
-See our [quickstart guide](/concepts/quickstart) to get up and running today. See how Open Game Backend compares to other game backends [here](/comparison/playfab).
+<CardGroup>
+  <Card icon="puzzle" title="Modular">
+    Mix, match, & modify modules as needed to fit your game's unique requirements.
+  </Card>
+  <Card icon="function" title="Script like a game engine">
+    Easily extend & adapt on top of the [OpenGB Engine](/engine/introduction) using TypeScript. Designed to be scripted by game developers.
+  </Card>
+  <Card icon="battery-full" title="Batteries included">
+    Provides thoroughly reviewed, tested, and documented modules to get you started quickly & allow you to customize to fit your needs.
+  </Card>
+  <Card icon="house-turret" title="Secure, load-tested, & resilient">
+    Built to withstand the chaos that games need to grow & stay online. Load testing, rate limits, captchas, strict schemas, <Tooltip tip="...documentation, secrets management, auto-scaling, and backups">and more</Tooltip> are all enforced by default.
+  </Card>
+  <Card icon="door-open" title="Open-source & permissively licensed">
+    Apache 2.0 license allows you to adapt, modify, & redistribute freely. _[Trust no one, own your backend.](https://delistedgames.com/gamesparks-service-to-end-in-september-potential-threat-to-thousands-of-titles/)_
+  </Card>
+  <Card
+    icon="arrow-right"
+    title="Get Started"
+    href="/concepts/quickstart"
+  ></Card>
+</CardGroup>
 
 ## Modules
 
@@ -32,40 +47,55 @@ These modules are thoroughly reviewed, tested, and documented to help you get yo
 
 <CardGroup cols={2}>
   <Card title="Build your own" icon="plus" href="/build/introduction" />
-  
-        <Card title="Authentication" icon="key" href="/modules/auth/overview">
-          <div>Authenticate users with multiple authentication methods.</div>
-          <Tags tags={["stable","core","auth","user"]} />
-        </Card>
-      
-        <Card title="Currency" icon="coin" href="/modules/currency/overview">
-          <div>Track user balances and allow them to deposit and withdraw.</div>
-          <Tags tags={["preview","economy"]} />
-        </Card>
-      
-        <Card title="Email" icon="envelope" href="/modules/email/overview">
-          <div>Send emails using multiple providers.</div>
-          <Tags tags={["stable","email"]} />
-        </Card>
-      
-        <Card title="Friends" icon="user-group" href="/modules/friends/overview">
-          <div>Allow users to send and accept friend requests.</div>
-          <Tags tags={["beta","social"]} />
-        </Card>
-      
-        <Card title="Rate Limit" icon="gauge-circle-minus" href="/modules/rate_limit/overview">
-          <div>Prevent abuse by limiting request rate.</div>
-          <Tags tags={["stable","core","utility"]} />
-        </Card>
-      
-        <Card title="Tokens" icon="lock" href="/modules/tokens/overview">
-          <div>Create & verify tokens for authorization purposes.</div>
-          <Tags tags={["stable","core","utility"]} />
-        </Card>
-      
-        <Card title="Users" icon="user" href="/modules/users/overview">
-          <div>Identify and manage users.</div>
-          <Tags tags={["stable","core","social"]} />
-        </Card>
-      
+
+{" "}
+
+<Card title="Authentication" icon="key" href="/modules/auth/overview">
+  <div>Authenticate users with multiple authentication methods.</div>
+  <Tags tags={["stable", "core", "auth", "user"]} />
+</Card>
+
+{" "}
+
+<Card title="Currency" icon="coin" href="/modules/currency/overview">
+  <div>Track user balances and allow them to deposit and withdraw.</div>
+  <Tags tags={["preview", "economy"]} />
+</Card>
+
+{" "}
+
+<Card title="Email" icon="envelope" href="/modules/email/overview">
+  <div>Send emails using multiple providers.</div>
+  <Tags tags={["stable", "email"]} />
+</Card>
+
+{" "}
+
+<Card title="Friends" icon="user-group" href="/modules/friends/overview">
+  <div>Allow users to send and accept friend requests.</div>
+  <Tags tags={["beta", "social"]} />
+</Card>
+
+{" "}
+
+<Card
+  title="Rate Limit"
+  icon="gauge-circle-minus"
+  href="/modules/rate_limit/overview"
+>
+  <div>Prevent abuse by limiting request rate.</div>
+  <Tags tags={["stable", "core", "utility"]} />
+</Card>
+
+{" "}
+
+<Card title="Tokens" icon="lock" href="/modules/tokens/overview">
+  <div>Create & verify tokens for authorization purposes.</div>
+  <Tags tags={["stable", "core", "utility"]} />
+</Card>
+
+  <Card title="Users" icon="user" href="/modules/users/overview">
+    <div>Identify and manage users.</div>
+    <Tags tags={["stable", "core", "social"]} />
+  </Card>
 </CardGroup>
