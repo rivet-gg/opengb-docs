@@ -120,7 +120,7 @@ async function generateIntroduction() {
     });
   const introduction = TEMPLATES.introduction.replace(
     "%%MODULE_CARDS%%",
-    moduleCards.join("\n"),
+    moduleCards.join(""),
   );
   await Deno.writeTextFile(
     resolve(PROJECT_ROOT, "introduction.mdx"),
@@ -244,7 +244,7 @@ async function generateModule(moduleName: string, module: ModuleMeta) {
     .replace(/%%DEPENDENCIES%%/g, dependencies)
     .replace(/%%DESCRIPTION%%/g, module.config.description!)
     .replace(/%%INSTALL%%/g, install)
-    .replace(/%%SCRIPTS%%/g, scriptCards.join("\n"))
+    .replace(/%%SCRIPTS%%/g, scriptCards.join(""))
     .replace(/%%ERRORS%%/g, errors);
   await Deno.writeTextFile(resolve(modulePath, "overview.mdx"), overview);
 
