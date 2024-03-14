@@ -54,8 +54,6 @@
           "group": "Engine Internals (Advanced)",
           "pages": [
             "engine/introduction",
-            "engine/schema-parser",
-            "engine/caching",
             {
               "group": "Design Decisions",
               "pages": [
@@ -203,8 +201,7 @@
                 "modules/users/scripts/create_user",
                 "modules/users/scripts/create_user_token",
                 "modules/users/scripts/get_user",
-                "modules/users/scripts/validate_user_token",
-                "TEST"
+                "modules/users/scripts/validate_user_token"
               ]
             }
           ]

@@ -252,8 +252,10 @@ async function generateModule(moduleName: string, module: ModuleMeta) {
   for (const [scriptName, script] of scriptsSorted) {
     const scriptContent = TEMPLATES.script
       .replace(/%%NAME%%/g, scriptName)
+      .replace(/%%NAME_CAMEL%%/g, script.nameCamel)
       .replace(/%%DISPLAY_NAME%%/g, script.config.name!)
       .replace(/%%MODULE_NAME%%/g, moduleName)
+      .replace(/%%MODULE_NAME_CAMEL%%/g, module.nameCamel)
       .replace(/%%MODULE_DISPLAY_NAME%%/g, module.config.name!)
       .replace(/%%DESCRIPTION%%/g, script.config.description ?? "")
       .replace(/%%PUBLIC%%/g, script.config.public ? "Yes" : "No")
