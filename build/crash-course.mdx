@@ -344,6 +344,158 @@ We're going to create a `submit_score` script that will:
 
 ## Step 5: Create `get_top_scores` script
 
-```sh
-opengb create script my_leaderboard get_top_scores
-```
+<Steps>
+	<Step title="Create script">
+		In the same terminal, run:
+
+    	```sh
+    	opengb create script my_leaderboard get_top_scores
+    	```
+    </Step>
+    <Step title="Make public">
+    	Open `modules/my_leaderboard/module.yaml` and update the `get_top_scores` script to be public:
+
+    	```yaml modules/my_leaderboard/module.yaml
+    	scripts:
+    	  get_top_scores:
+    		public: true
+    	```
+    </Step>
+    <Step title="Update request & response">
+    	Open `modules/my_leaderboard/scripts/get_top_scores.ts` and update `Request` and `Response` to look like this:
+
+    	```typescript modules/my_leaderboard/scripts/get_top_scores.ts
+    	export interface Request {
+    		count: number;
+    	}
+
+    	export interface Response {
+    		scores: Score[];
+    	}
+
+    	export interface Score {
+    		userId: string;
+    		createdAt: string;
+    		score: number;
+    	}
+    	```
+
+    	<Accordion title="What did this do?">
+    		This will allow the user to request the top `count` scores and return an array of `Score` objects.
+    	</Accordion>
+    </Step>
+    <Step title="Throttle requests">
+    	At the top the `run` function in `modules/my_leaderboard/scripts/get_top_scores.ts` file, add the following code:
+
+    	```typescript models/my_leaderboard/scripts/get_top_scores.ts
+    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
+    		await ctx.modules.rateLimit.throttlePublic({});
+    		// ...
+    	}
+    	```
+    </Step>
+    <Step title="Query scores">
+    	Then add:
+
+    	```typescript models/my_leaderboard/scripts/get_top_scores.ts
+    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
+    		// ...
+    		const rows = await ctx.db.scores.findMany({
+    			take: req.count,
+    			orderBy: { score: "desc" },
+    			select: { userId: true, createdAt: true, score: true },
+    		});
+    		// ...
+    	}
+    	```
+
+    	<Accordion title="What did this do?">
+    		- `take` limits the number of scores returned to `req.count`.
+    		- `orderBy` orders the scores by `score` in descending order.
+    		- `select` limits the columns returned to `userId`, `createdAt`, and `score`.
+    	</Accordion>
+    </Step>
+    <Step title="Convert rows">
+    	Then add:
+
+    	```typescript models/my_leaderboard/scripts/get_top_scores.ts
+    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
+    		// ...
+    		const scores = [];
+    		for (const row of rows) {
+    			scores.push({
+    				userId: row.userId,
+    				createdAt: row.createdAt.toISOString(),
+    				score: row.score,
+    			});
+    		}
+    		// ...
+    	}
+    	```
+
+    	<Accordion title="What did this do?">
+    		This converts the database rows into the `Score` objects we defined in the `Response`.
+
+    		We use `toISOString` to convert the `createdAt` of type `Date` into a string.
+    	</Accordion>
+    </Step>
+    <Step title="Return scores">
+    	Finally:
+
+    	```typescript models/my_leaderboard/scripts/get_top_scores.ts
+    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
+    		// ...
+    		return { scores };
+    	}
+    	```
+    </Step>
+
+</Steps>
+
+<Accordion title="Full get_top_scores.ts source code">
+
+    ```typescript models/my_leaderboard/scripts/get_top_scores.ts
+    import {  ScriptContext } from "../_gen/scripts/get_top_scores.ts";
+
+    export interface Request {
+    	count: number;
+    }
+
+    export interface Response {
+    	scores: Score[];
+    }
+
+    export interface Score {
+    	userId: string;
+    	createdAt: string;
+    	score: number;
+    }
+
+    export async function run(
+    	ctx: ScriptContext,
+    	req: Request,
+    ): Promise<Response> {
+    	await ctx.modules.rateLimit.throttlePublic({});
+
+    	const rows = await ctx.db.scores.findMany({
+    		take: req.count,
+    		orderBy: { score: "desc" },
+    		select: { userId: true, createdAt: true, score: true },
+    	});
+
+    	const scores = [];
+    	for (const row of rows) {
+    		scores.push({
+    			userId: row.userId,
+    			createdAt: row.createdAt.toISOString(),
+    			score: row.score,
+    		});
+    	}
+
+    	return {
+    		scores: scores,
+    	};
+    }
+    ```
+
+</Accordion>
