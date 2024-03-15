@@ -19,9 +19,9 @@ import Install from "/snippets/install.mdx";
         opengb init
         ```
 
-        <Tip>
+        <Info>
             This creates a `backend.yaml` config file. See the project configuration [here](/concepts/project-config).
-        </Tip>
+        </Info>
     </Step>
     <Step title="Add modules">
         The default project comes with a set of modules preinstalled. Install the `friends` module by running the following command:
@@ -30,18 +30,47 @@ import Install from "/snippets/install.mdx";
         opengb module add friends
         ```
 
-        <Tip>
-            This adds the `friends` module to the `backend.yaml` file. You can also install modules manually by adding them to this config.
-        </Tip>
+        This adds the `friends` module to the `backend.yaml` file. You can also install modules manually by adding them to this config.
 
-        <Tip>
+        <Info>
             See a list of available modules [here](/modules).
-        </Tip>
+        </Info>
     </Step>
-    <Step title="Run server">
+    <Step title="Run development server">
+        The development server is great for testing your scripts locally. It will hot reload when you make changes to your backend.
+
+        ```sh
+        opengb dev
+        ```
     </Step>
     <Step title="Generate SDK (optional)">
+        Open Game Backend will generate an SDK with type-safe methods to call your scripts.
+        
+        Replace `/path/to/sdk` with the path where you want to generate the SDK. 
+
+        ```sh
+        opengb sdk generate --output /path/to/sdk typescript
+        ```
+
+        <Info>
+            Godot, Unity, Unreal, and Rust SDKs coming soon.
+        </Info>
     </Step>
-    <Step title="Deploy (optional)">
+    <Step title="Open in Postman/Insomnia/Firecamp/etc (optional)">
+        The [OpenAPI](https://www.openapis.org/) specification is generated at `_gen/openapi.json`. You can import this file into your favorite API client to start making requests to your server.
     </Step>
+    <Step title="Deploy server (optional)">
+        <Info>
+            Documentation coming soon.
+        </Info>
+    </Step>
+    <Step title="Next steps">
+        <CardGroup>
+            <Card title="See available modules ->" href="/modules/overview" />
+            <Card title="Learn about registries ->" href="/concepts/registries" />
+            <Card title="Learn about the CLI ->" href="/concepts/cli" />
+            <Card title="Write your own module ->" href="/build/crash-course" />
+        </CardGroup>
+    </Step>
+
 </Steps>
