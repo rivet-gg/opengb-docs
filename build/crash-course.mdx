@@ -101,7 +101,7 @@ model Scores {
 
 <Info>
   Open Game Backend is powered by [PostgreSQL](https://www.postgresql.org/).
-  Learn about why we chose PostgreSQL [here](/engines/design/postgres).
+  Learn about why we chose PostgreSQL [here](/engine/design/postgres).
 </Info>
 
 ---
@@ -499,3 +499,117 @@ We're going to create a `submit_score` script that will:
     ```
 
 </Accordion>
+
+---
+
+## Step 6: Start development server
+
+<Steps>
+	<Step title="Start development server">
+
+		In the same terminal, run:
+
+		```sh
+		opengb dev
+		```
+
+	</Step>
+	<Step title="Migrate database">
+
+		You will be prompted to apply your database schema changes to the database. Name the migration _init_ (this name doesn't matter):
+
+		```
+		Migrate Database develop (my_leaderboard)
+		Prisma schema loaded from schema.prisma
+		Datasource "db": PostgreSQL database "my_leaderboard", schema "public" at "host.docker.internal:5432"
+
+    	? Enter a name for the new migration: › init
+    	```
+
+    </Step>
+	<Step title="Success">
+		You've now written a full complete module. Generate your new SDK and use it in your game.
+	</Step>
+</Steps>
+
+---
+
+## Step 7 (optional): Test module
+
+Tests are helpful for validating your module works as expected before running in to the issue down the road. Testing is optional, but strongly encouraged.
+
+<Info>All modules provided in the default registry are thoroughly tested.</Info>
+
+<Steps>
+	<Step title="Create test">
+		```sh
+		opengb create test my_leaderboard e2e
+		```
+
+    	<Tip>
+    		`e2e` stands for "end to end" test. E2E tests simulate real-world scenarios involving multiple parts of a system. These tend to be comprehensive and catch the msot bugs.
+    	</Tip>
+    </Step>
+    <Step title="Write test">
+
+		Update `modules/my_leaderboard/tests/e2e.ts` to look like this:
+
+		```typescript modules/my_leaderboard/tests/e2e.ts
+		import { test, TestContext } from "../_gen/test.ts";
+		import { assertEquals } from "https://deno.land/std@0.220.0/assert/mod.ts";
+		import { faker } from "https://deno.land/x/deno_faker@v1.0.3/mod.ts";
+
+		test("e2e", async (ctx: TestContext) => {
+			// Create user & token to authenticate with
+			const { user } = await ctx.modules.users.createUser({});
+			const { token } = await ctx.modules.users.createUserToken({
+				userId: user.id,
+			});
+
+			// Create some scores
+			const scores = [];
+			for (let i = 0; i < 10; i++) {
+				const score = faker.random.number({ min: 0, max: 100 });
+				await ctx.modules.myLeaderboard.submitScore({
+					userToken: token.token,
+					score: score,
+				});
+				scores.push(score);
+			}
+
+			// Get top scores
+			scores.sort((a, b) => b - a);
+			const topScores = await ctx.modules.myLeaderboard.getTopScores({ count: 5 });
+			assertEquals(topScores.scores.length, 5);
+			for (let i = 0; i < 5; i++) {
+				assertEquals(topScores.scores[i].score, scores[i]);
+			}
+		});
+		```
+    </Step>
+    <Step title="Run test">
+
+		In the same terminal, run:
+
+		```sh
+		opengb test
+		```
+
+		You should see this output once complete:
+
+		```
+		...test logs...
+		----- output end -----
+		e2e ... ok (269ms)
+
+		ok | 1 passed | 0 failed (280ms)
+		```
+
+	</Step>
+</Steps>
+
+---
+
+## Step 8: (optional): Publish in a registry
+
+If you want to use your module across multiple games or share your module with others, you can publish it as a registry. Learn more [here](/build/registry).

@@ -41,11 +41,11 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "concepts/install",
         "concepts/quickstart",
         {
           "group": "Concepts",
           "pages": [
+            "concepts/install",
             "concepts/registries",
             "concepts/known-issues",
             {
@@ -83,7 +83,6 @@
     {
       "group": "Building Modules",
       "pages": [
-        "build/introduction",
         "build/crash-course",
         {
           "group": "Concepts",
