@@ -317,16 +317,22 @@ ${schema}
 			requestExamples += TEMPLATES.examplePublic;
 		}
 		requestExamples += `\n</RequestExample>`;
-		requestExamples
+		requestExamples = requestExamples
 			.replace(/%%NAME%%/g, scriptName)
-			.replace(/%%MODULE_NAME%%/g, moduleName);
+			.replace(/%%NAME_CAMEL%%/g, script.nameCamel)
+			.replace(/%%NAME_PASCAL%%/g, script.namePascal)
+			.replace(/%%MODULE_NAME%%/g, moduleName)
+			.replace(/%%MODULE_NAME_CAMEL%%/g, module.nameCamel)
+			.replace(/%%MODULE_NAME_PASCAL%%/g, module.namePascal);
 
 		const scriptContent = TEMPLATES.script
 			.replace(/%%NAME%%/g, scriptName)
 			.replace(/%%NAME_CAMEL%%/g, script.nameCamel)
+			.replace(/%%NAME_PASCAL%%/g, script.namePascal)
 			.replace(/%%DISPLAY_NAME%%/g, script.config.name!)
 			.replace(/%%MODULE_NAME%%/g, moduleName)
 			.replace(/%%MODULE_NAME_CAMEL%%/g, module.nameCamel)
+			.replace(/%%MODULE_NAME_PASCAL%%/g, module.namePascal)
 			.replace(/%%MODULE_DISPLAY_NAME%%/g, module.config.name!)
 			.replace(/%%DESCRIPTION%%/g, script.config.description ?? "")
 			.replace(/%%PUBLIC%%/g, script.config.public ? "Yes" : "No")
