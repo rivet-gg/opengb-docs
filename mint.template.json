@@ -46,6 +46,7 @@
           "group": "Concepts",
           "pages": [
             "concepts/install",
+            "concepts/sdk",
             "concepts/registries",
             "concepts/known-issues",
             {
