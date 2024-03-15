@@ -69,6 +69,12 @@ const TEMPLATES = {
 	script: await Deno.readTextFile(
 		resolve(TEMPLATES_PATH, "script.mdx"),
 	),
+	examplePrivate: await Deno.readTextFile(
+		resolve(TEMPLATES_PATH, "example_private.mdx"),
+	),
+	examplePublic: await Deno.readTextFile(
+		resolve(TEMPLATES_PATH, "example_public.mdx"),
+	),
 };
 
 // Sort modules
@@ -267,6 +273,16 @@ ${schema}
 
 	await emptyDir(resolve(modulePath, "scripts"));
 	for (const [scriptName, script] of scriptsSorted) {
+		let requestExamples = "<RequestExample>\n";
+		requestExamples += TEMPLATES.examplePrivate;
+		if (script.config.public) {
+			requestExamples += TEMPLATES.examplePublic;
+		}
+		requestExamples += `\n</RequestExample>`;
+		requestExamples
+			.replace(/%%NAME%%/g, scriptName)
+			.replace(/%%MODULE_NAME%%/g, moduleName);
+
 		const scriptContent = TEMPLATES.script
 			.replace(/%%NAME%%/g, scriptName)
 			.replace(/%%NAME_CAMEL%%/g, script.nameCamel)
@@ -276,6 +292,7 @@ ${schema}
 			.replace(/%%MODULE_DISPLAY_NAME%%/g, module.config.name!)
 			.replace(/%%DESCRIPTION%%/g, script.config.description ?? "")
 			.replace(/%%PUBLIC%%/g, script.config.public ? "Yes" : "No")
+			.replace(/%%REQUEST_EXAMPLES%%/g, requestExamples)
 			.replace(
 				/%%REQUEST_SCHEMA%%/g,
 				await schemaToTypeScript(script.requestSchema, "Request"),
