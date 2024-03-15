@@ -50,6 +50,7 @@
             "concepts/sdk",
             "concepts/registries",
             "concepts/known-issues",
+            "concepts/enterprise-support",
             {
               "group": "Advanced",
               "pages": ["concepts/self-hosting"]
