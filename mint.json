@@ -207,7 +207,7 @@
                 "modules/users/scripts/create_user",
                 "modules/users/scripts/create_user_token",
                 "modules/users/scripts/get_user",
-                "modules/users/scripts/validate_user_token"
+                "modules/users/scripts/authenticate_user"
               ]
             }
           ]

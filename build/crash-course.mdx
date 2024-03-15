@@ -204,7 +204,7 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Throttle requests">
-    	At the top the `run` function in `modules/my_leaderboard/scripts/submit_score.ts` file, add the following code:
+    	At the top the `run` function in `modules/my_leaderboard/scripts/submit_score.ts` file, add code to throttle requests:
 
     	```typescript models/my_leaderboard/scripts/submit_score.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -218,12 +218,12 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Validate user token">
-    	Then add:
+    	Then authenticate the user:
 
     	```typescript models/my_leaderboard/scripts/submit_score.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
     		// ...
-    		const validate = await ctx.modules.users.validateUserToken({ userToken: req.userToken });
+    		const validate = await ctx.modules.users.authenticateUser({ userToken: req.userToken });
     		///
     	}
     	```
@@ -233,7 +233,7 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Insert score">
-    	Then add:
+    	Then insert the score in to the database:
 
     	```typescript models/my_leaderboard/scripts/submit_score.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -255,7 +255,7 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Query rank">
-    	Then add:
+    	Finally, query the score's rank:
 
     	```typescript models/my_leaderboard/scripts/submit_score.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -265,20 +265,7 @@ We're going to create a `submit_score` script that will:
     				score: { gt: req.score },
     			},
     		});
-    		// ...
-    	}
-    	```
-
-    	<Accordion title="What did this do?">
-    		This will return the number of scores that are greater than (`gt`) the user's score. This is the user's rank on the leaderboard.
-    	</Accordion>
-    </Step>
-    <Step>
-    	Finally:
-
-    	```typescript models/my_leaderboard/scripts/submit_score.ts
-    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
-    		// ...
+    		
     		return {
     			rank: rank + 1,
     		};
@@ -286,7 +273,9 @@ We're going to create a `submit_score` script that will:
     	```
 
     	<Accordion title="What did this do?">
-    		This will return the user's rank on the leaderboard. We add 1 to the rank, since the 1st place will have 0 scores greater than it.
+    		This will return the number of scores that are greater than (`gt`) the user's score. This is the user's rank on the leaderboard.
+
+    		We add 1 to the rank, since the 1st place will have 0 scores greater than it.
     	</Accordion>
     </Step>
 
@@ -310,7 +299,7 @@ We're going to create a `submit_score` script that will:
     	req: Request,
     ): Promise<Response> {
     	await ctx.modules.rateLimit.throttlePublic({ requests: 1, period: 15 });
-    	const validate = await ctx.modules.users.validateUserToken({
+    	const validate = await ctx.modules.users.authenticateUser({
     		userToken: req.userToken,
     	});
 
@@ -385,7 +374,7 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Throttle requests">
-    	At the top the `run` function in `modules/my_leaderboard/scripts/get_top_scores.ts` file, add the following code:
+    	At the top the `run` function in `modules/my_leaderboard/scripts/get_top_scores.ts` file, add code to throttle the requests:
 
     	```typescript models/my_leaderboard/scripts/get_top_scores.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -395,7 +384,7 @@ We're going to create a `submit_score` script that will:
     	```
     </Step>
     <Step title="Query scores">
-    	Then add:
+    	Then query the top scores:
 
     	```typescript models/my_leaderboard/scripts/get_top_scores.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -416,7 +405,7 @@ We're going to create a `submit_score` script that will:
     	</Accordion>
     </Step>
     <Step title="Convert rows">
-    	Then add:
+    	Finally, convert the database rows in to `Score` objects:
 
     	```typescript models/my_leaderboard/scripts/get_top_scores.ts
     	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
@@ -429,7 +418,8 @@ We're going to create a `submit_score` script that will:
     				score: row.score,
     			});
     		}
-    		// ...
+    		
+    		return { scores };
     	}
     	```
 
@@ -438,16 +428,6 @@ We're going to create a `submit_score` script that will:
 
     		We use `toISOString` to convert the `createdAt` of type `Date` into a string.
     	</Accordion>
-    </Step>
-    <Step title="Return scores">
-    	Finally:
-
-    	```typescript models/my_leaderboard/scripts/get_top_scores.ts
-    	export async function run(ctx: ScriptContext, req: Request): Promise<Response> {
-    		// ...
-    		return { scores };
-    	}
-    	```
     </Step>
 
 </Steps>
