@@ -132,7 +132,7 @@ async function generateModuleCards() {
 async function generateModulesOverview() {
 	await Deno.writeTextFile(
 		resolve(PROJECT_ROOT, "modules", "overview.mdx"),
-		TEMPLATES.modulesOverview
+		TEMPLATES.modulesOverview,
 	);
 }
 
@@ -238,6 +238,18 @@ async function generateModule(moduleName: string, module: ModuleMeta) {
 		errors = "_No errors_";
 	}
 
+	let configSchema = "";
+	if (module.hasUserConfigSchema) {
+		const schema = await schemaToTypeScript(module.userConfigSchema, "Config");
+		configSchema = `## Config
+
+		
+\`\`\`typescript
+${schema}
+\`\`\`
+`;
+	}
+
 	// Generate overview
 	const overview = TEMPLATES.moduleOverview
 		.replace(/%%NAME%%/g, moduleName)
@@ -247,7 +259,8 @@ async function generateModule(moduleName: string, module: ModuleMeta) {
 		.replace(/%%AUTHORS%%/g, authors)
 		.replace(/%%DEPENDENCIES%%/g, dependencies)
 		.replace(/%%DESCRIPTION%%/g, module.config.description!)
-		.replace(/%%INSTALL%%/g, install)
+		.replace(/%%INSTALL_CONFIG%%/g, install)
+		.replace(/%%CONFIG_SCHEMA%%/g, configSchema)
 		.replace(/%%SCRIPTS%%/g, scriptCards.join(""))
 		.replace(/%%ERRORS%%/g, errors);
 	await Deno.writeTextFile(resolve(modulePath, "overview.mdx"), overview);

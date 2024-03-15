@@ -5,9 +5,6 @@ sidebarTitle: Overview
 ---
 
 TODO:
-
-- Config
-- Errors
 - Script description
 - Database schema
 
@@ -26,32 +23,30 @@ _No dependencies_
 
 ## Installation
 
-<Steps>
-<Step title="Update config">
+<Tabs>
+
+<Tab title="CLI">
+
+```sh CLI
+opengb module add rate_limit
+```
+
+</Tab>
+
+<Tab title="backend.yaml">
+
 Add the following to your `backend.yaml`:
 
-```yaml
+```yaml backend.yaml
 modules:
   rate_limit: {}
 
 ```
+</Tab>
 
-</Step>
-<Step title="Call scripts">
-<CodeGroup>
+</Tabs>
 
-```bash curl
-curl --request POST \
-    --url https://dog-api.kinduff.com/api/facts
-```
 
-```typescript TypeScript
-let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
-```
-
-</CodeGroup>
-</Step>
-</Steps>
 
 ## Scripts
 

@@ -4,13 +4,6 @@ description: "Authenticate users with multiple authentication methods."
 sidebarTitle: Overview
 ---
 
-TODO:
-
-- Config
-- Errors
-- Script description
-- Database schema
-
 | Source                                                                           | Name       | Status     | Database     |
 | -------------------------------------------------------------------------------- | ---------- | ---------- | ------------ |
 | [Source](https://github.com/rivet-gg/opengb-registry/tree/main/modules/auth) | `auth` | stable | Yes |
@@ -28,34 +21,44 @@ TODO:
 
 ## Installation
 
-<Steps>
-<Step title="Update config">
+<Tabs>
+
+<Tab title="CLI">
+
+```sh CLI
+opengb module add auth
+```
+
+</Tab>
+
+<Tab title="backend.yaml">
+
 Add the following to your `backend.yaml`:
 
-```yaml
+```yaml backend.yaml
 modules:
   auth:
     config:
       # Your config here. See below for more details.
 
 ```
+</Tab>
 
-</Step>
-<Step title="Call scripts">
-<CodeGroup>
+</Tabs>
 
-```bash curl
-curl --request POST \
-    --url https://dog-api.kinduff.com/api/facts
+## Config
+
+		
+```typescript
+export interface Config {
+  email?: EmailConfig;
+}
+export interface EmailConfig {
+  fromEmail: string;
+  fromName?: string;
+}
 ```
 
-```typescript TypeScript
-let response = await fetch("https://dog-api.kinduff.com/api/facts", {});
-```
-
-</CodeGroup>
-</Step>
-</Steps>
 
 ## Scripts
 
