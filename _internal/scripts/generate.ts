@@ -84,6 +84,8 @@ const modulesSorted = Object.entries(meta.modules)
 // Generate introduction
 await generateModuleCards();
 await generateModulesOverview();
+await generateProjectConfig();
+await generateModuleConfig();
 
 // Generate modules
 const modulesNav: any = {
@@ -139,6 +141,42 @@ async function generateModulesOverview() {
 	await Deno.writeTextFile(
 		resolve(PROJECT_ROOT, "modules", "overview.mdx"),
 		TEMPLATES.modulesOverview,
+	);
+}
+
+async function generateProjectConfig() {
+	const projectSchema = await Deno.readTextFile(resolve(OPENGB_PATH, "artifacts", "project_schema.json"));
+	const configTs = await schemaToTypeScript(JSON.parse(projectSchema), "Config");
+	await Deno.writeTextFile(
+		resolve(PROJECT_ROOT, "concepts", "project-config.mdx"),
+		`---
+title: "Config (backend.yaml)"
+---
+
+<Note>This documentation page is a work in progress.</Note>
+
+\`\`\`typescript
+${configTs}
+\`\`\`
+`,
+	);
+}
+
+async function generateModuleConfig() {
+	const projectSchema = await Deno.readTextFile(resolve(OPENGB_PATH, "artifacts", "module_schema.json"));
+	const configTs = await schemaToTypeScript(JSON.parse(projectSchema), "Config");
+	await Deno.writeTextFile(
+		resolve(PROJECT_ROOT, "build", "module-config.mdx"),
+		`---
+title: "Config (module.yaml)"
+---
+
+<Note>This documentation page is a work in progress.</Note>
+
+\`\`\`typescript
+${configTs}
+\`\`\`
+`,
 	);
 }
 
