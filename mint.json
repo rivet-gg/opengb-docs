@@ -71,7 +71,6 @@
           "group": "Comparison",
           "pages": [
             "comparison/playfab",
-            "comparison/pragma",
             "comparison/nakama",
             "comparison/supabase"
           ]
