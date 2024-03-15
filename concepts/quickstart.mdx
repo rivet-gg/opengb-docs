@@ -1,16 +1,47 @@
 ---
-title: 'Quickstart'
+title: "Quickstart"
 ---
 
-<button>Deploy with Rivet</button>
+import InstallPrerequisites from "/snippets/install-prerequisites.mdx";
+import Install from "/snippets/install.mdx";
+
 <Steps>
-  <Step title='Deploy to Rivet'>
-    just do it
-  </Step>
-  <Step title='Create your own module'>
-    read the title
-  </Step>
-  <Step title='Profit'>
-    
-  </Step>
+    <Step title="Install prerequisites">
+        <InstallPrerequisites />
+    </Step>
+    <Step title="Install Open Game Backend">
+        <Install />
+    </Step>
+    <Step title="Create project">
+        Create a new project by running the following command:
+
+        ```sh
+        opengb init
+        ```
+
+        <Tip>
+            This creates a `backend.yaml` config file. See the project configuration [here](/concepts/project-config).
+        </Tip>
+    </Step>
+    <Step title="Add modules">
+        The default project comes with a set of modules preinstalled. Install the `friends` module by running the following command:
+
+        ```sh
+        opengb module add friends
+        ```
+
+        <Tip>
+            This adds the `friends` module to the `backend.yaml` file. You can also install modules manually by adding them to this config.
+        </Tip>
+
+        <Tip>
+            See a list of available modules [here](/modules).
+        </Tip>
+    </Step>
+    <Step title="Run server">
+    </Step>
+    <Step title="Generate SDK (optional)">
+    </Step>
+    <Step title="Deploy (optional)">
+    </Step>
 </Steps>

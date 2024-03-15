@@ -46,6 +46,7 @@
           "group": "Concepts",
           "pages": [
             "concepts/install",
+            "concepts/project-config",
             "concepts/sdk",
             "concepts/registries",
             "concepts/known-issues",
@@ -55,6 +56,14 @@
                 "concepts/self-hosting"
               ]
             }
+          ]
+        },
+        {
+          "group": "Integrations",
+          "pages": [
+            "integrations/overview",
+            "integrations/sendgrid",
+            "integrations/infisical"
           ]
         },
         {
@@ -91,6 +100,7 @@
           "group": "Concepts",
           "pages": [
             "build/module",
+            "build/module-config",
             "build/database",
             "build/script",
             "build/user-config",
@@ -103,6 +113,7 @@
     {
       "group": "Modules",
       "pages": [
+        "modules/overview",
         {
           "icon": "key",
           "group": "Authentication",
