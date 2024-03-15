@@ -46,11 +46,13 @@ import Install from "/snippets/install.mdx";
     <Step title="Generate SDK (optional)">
         Open Game Backend will generate an SDK with type-safe methods to call your scripts.
         
-        Replace `/path/to/sdk` with the path where you want to generate the SDK. 
+        Replace `<output>` with the path where you want to generate the SDK. Replace `<target>` with the target language.
 
         ```sh
-        opengb sdk generate --output /path/to/sdk typescript
+        opengb sdk generate --output <output> <target>
         ```
+
+        See the [SDK docs](/concepts/sdk) for instructions on how to use the generated SDK.
 
         <Info>
             Godot, Unity, Unreal, and Rust SDKs coming soon.
