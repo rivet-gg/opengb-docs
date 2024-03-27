@@ -53,7 +53,7 @@
             "concepts/enterprise-support",
             {
               "group": "Advanced",
-              "pages": ["concepts/self-hosting"]
+              "pages": ["concepts/self-hosting", "concepts/multiple-games"]
             }
           ]
         },

@@ -54,7 +54,8 @@
             {
               "group": "Advanced",
               "pages": [
-                "concepts/self-hosting"
+                "concepts/self-hosting",
+                "concepts/multiple-games"
               ]
             }
           ]
