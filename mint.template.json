@@ -62,10 +62,10 @@
                 {
                   "group": "Design Decisions",
                   "pages": [
-                    "engine/design/postgres",
-                    "engine/design/prisma",
                     "engine/design/typescript",
-                    "engine/design/deno"
+                    "engine/design/deno",
+                    "engine/design/postgres",
+                    "engine/design/prisma"
                   ]
                 }
               ]
