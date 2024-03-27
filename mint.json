@@ -38,7 +38,7 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Getting Started",
       "pages": [
         "introduction",
         "concepts/quickstart",
@@ -57,15 +57,22 @@
                 "concepts/self-hosting",
                 "concepts/multiple-games"
               ]
+            },
+            {
+              "group": "Engine Internals",
+              "pages": [
+                "engine/introduction",
+                {
+                  "group": "Design Decisions",
+                  "pages": [
+                    "engine/design/postgres",
+                    "engine/design/prisma",
+                    "engine/design/typescript",
+                    "engine/design/deno"
+                  ]
+                }
+              ]
             }
-          ]
-        },
-        {
-          "group": "Integrations",
-          "pages": [
-            "integrations/overview",
-            "integrations/sendgrid",
-            "integrations/infisical"
           ]
         },
         {
@@ -74,21 +81,6 @@
             "comparison/playfab",
             "comparison/nakama",
             "comparison/supabase"
-          ]
-        },
-        {
-          "group": "Engine Internals (Advanced)",
-          "pages": [
-            "engine/introduction",
-            {
-              "group": "Design Decisions",
-              "pages": [
-                "engine/design/postgres",
-                "engine/design/prisma",
-                "engine/design/typescript",
-                "engine/design/deno"
-              ]
-            }
           ]
         }
       ]
@@ -107,6 +99,19 @@
             "build/user-config",
             "build/errors",
             "build/conventions"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/overview",
+        {
+          "group": "Integrations",
+          "pages": [
+            "integrations/sendgrid",
+            "integrations/infisical"
           ]
         }
       ]
